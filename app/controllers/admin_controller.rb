@@ -1,6 +1,27 @@
-# frozen_string_literal: true
-
 class AdminController < ApplicationController
+  before_action :authenticate_user,{except:[:login, :loginPost]}
+  def login
+    if session[:user_id]!=nil
+      redirect_to("/admin/list")
+    end
+  end
+
+  def loginPost
+    @user = User.find_by(name: params[:name])
+    puts "-----user-----"
+    puts "name: #{@user.name}"
+    if @user && @user.authenticate(params[:password])
+      puts "-----authenticated-----"
+      flash[:notice]="ログインできました"
+      session[:user_id] = @user.id
+      redirect_to("/admin/list")
+    else
+       puts "-----failed-----"
+      flash[:notice]="何かが間違っています"
+      redirect_to("/admin/login")
+    end
+  end
+
   def list
     @projects = Project.all
   end

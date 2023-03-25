@@ -19,7 +19,7 @@
       </div>
     <% end %>
     <% @projects.each do |pro| %>
-      <%= link_to("/#{pro.team_id}") do %>
+      <%= link_to("/admin/edit/#{pro.team_id}") do %>
         <div class="l-wrapper card-radius">
           <article class="card">
             <div class="card__header">
