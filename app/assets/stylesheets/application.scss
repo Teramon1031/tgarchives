@@ -1,0 +1,162 @@
+$text-black: #212121;
+$text-white: #fff;
+$dark-blue: #041E42;
+$gold:#FFB81C;
+
+* {
+    color: $text-black;
+    margin: 0;
+    padding: 0;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+@import "card";
+
+a {
+    text-decoration: none;
+    color: $text-black;
+}
+
+header {
+    padding: 0 1.5em;
+    background-color: rgba($dark-blue, 0.9);
+
+    .header-logo {
+        display: flex;
+        // justify-content: space-between;
+        // align-items: flex-end;
+        align-items: center;
+
+        .logo {
+            margin: 0;
+            padding: 0;
+            height: 4em;
+        }
+
+        span {
+            margin: 0 1em;
+            color: $text-white;
+            font-size: 1em;
+        }
+    }
+
+}
+
+.flash {
+    background-color: rgba($gold, 0.6);
+
+    p {
+        color: $text-black;
+        padding: 1em 2em;
+    }
+}
+
+.container {
+    margin: 1em 2em;
+
+    .projects {
+        padding: 2em;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .project {
+        h1.name {
+            border-top: 2px solid $dark-blue;
+            padding-left: 0.5em;
+        }
+
+        input {
+            padding: 0 0.3em;
+            border: 1px solid $dark-blue;
+            border-radius: 0.3em;
+            width: 70%;
+        }
+
+        .btn-wrapper {
+            text-align: center;
+
+            .form-btn {
+                padding: 1em 2em;
+                width: 10em;
+                background-color: #fff;
+
+                &:hover {
+                    color: $text-white;
+                    background-color: $dark-blue;
+                }
+            }
+        }
+
+        @import "note";
+
+        .note-wrapper-edit {
+            display: flex;
+            margin: 3em 2em 1em 2em;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            .team-info-edit {
+                width: 40%;
+                margin: 1em;
+
+                @media screen and (max-width: 1100px) {
+                    width: 80%;
+                }
+            }
+        }
+
+        .note-wrapper {
+
+            .team-info {
+                // width: 70%;
+                margin: 1em 3em;
+            }
+
+        }
+
+        .video-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            .video {
+                margin: 1.5em 2em;
+                width: 40%;
+
+                @media screen and (max-width: 1100px) {
+                    width: 80%;
+                }
+            }
+
+        }
+
+        .video-wrapper-new {
+
+            .video {
+                margin: 1.5em 2em;
+            }
+        }
+
+        @import "video";
+
+
+
+    }
+}
+
+footer {
+    padding: 2em;
+    background-color: $dark-blue;
+
+    ul li {
+        text-decoration: none;
+        list-style: none;
+        padding-bottom: 1em;
+
+        a {
+            color: $text-white;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TGプロジェクト図鑑</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%# <%= javascript_importmap_tags %>
+    <script src="https://kit.fontawesome.com/d2662818c1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <a href = "/" class="header-logo">
+        <img src="/assets/tg-logo-white.png" alt="" class="logo">
+        <span>プロジェクト図鑑</span>
+      </a>
+    </header>
+    <% if flash %>
+      <div class="flash">
+        <% flash.each do |key, msg| %>
+          <p><%=msg%></p>
+        <% end %>
+      </div>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <footer>
+      <ul>
+        <li><a href="https://technovationchallenge.org/" target="_blank">Technovation公式サイト</a></li>
+        <li><a href="https://www.technovation.waffle-waffle.org/" target="_blank">JapanRegion公式サイト</a></li>
+        <li><a href="/admin/list">運営ログイン</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_id: MyString
+  app_name: MyString
+  team_name: MyString
+  pitch_video: MyString
+  demo_video: MyString
+  business_plan: MyString
+  journey: MyString
+  member_num: 1
+  year: MyString
+  prize: MyString
+  semifinal: 1
+  final: 1
+
+two:
+  team_id: MyString
+  app_name: MyString
+  team_name: MyString
+  pitch_video: MyString
+  demo_video: MyString
+  business_plan: MyString
+  journey: MyString
+  member_num: 1
+  year: MyString
+  prize: MyString
+  semifinal: 1
+  final: 1

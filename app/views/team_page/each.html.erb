@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="project">
+    <h1 class="name">
+      <%= @project.app_name %>
+      by
+      <%= @project.team_name %>
+    </h1>
+    <div class="note-wrapper">
+      <div class="team-info note">
+        <p class="title"><span> チーム情報 </span></p>
+        <ul>
+          <li>チーム名 :  <%= @project.team_name %></li>
+          <li>アプリ名 :   <%= @project.app_name %></li>
+          <li>参加年 : <%= "#{@project.year}年" %></li>
+          <li>人数 :   <%= "#{@project.member_num}人" %> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="video-wrapper">
+      <div class="video">
+        <h2>Pitch Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @pitch_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <h2>Demo Video</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @demo_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <%# <div class="related">
+    <h1>関連したチーム</h1>
+  </div> %>
+</div>
