@@ -12,22 +12,62 @@
           <li>チーム名 :  <%= @project.team_name %></li>
           <li>アプリ名 :   <%= @project.app_name %></li>
           <li>参加年 : <%= "#{@project.year}年" %></li>
+          <li>チーム番号 : <%= "#{@project.team_num}" %></li>
           <li>人数 :   <%= "#{@project.member_num}人" %> </li>
+          <% if @project.prize %>
+            <li>企業賞 :  <%= "#{@project.prize}賞" %> </li>
+          <%end%>
+          <% if @project.semifinal == 1 %>
+            <li>セミファイナリスト
+              <% if @project.final == 1%>
+                & ファイナリスト
+              <% end %>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+    <div class="desc-wrapper">
+      <div class="video-info">
+        <p class="title"><span>Project Description</span></p>
+        <ul>
+          <li class="text-input">
+            <%=@project.description%>
+          </li>
         </ul>
       </div>
     </div>
     <div class="video-wrapper">
       <div class="video">
-        <h2>Pitch Video</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @pitch_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-info">
+          <p class="title"><span>Pitch Video</span></p>
+        </div>
+        <iframe  width="560" height="315" src="https://www.youtube.com/embed/<%= @pitch_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="video">
-        <h2>Demo Video</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @demo_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-info">
+          <p class="title"><span>Demo Video</span></p>
+        </div>
+        <iframe  width="560" height="315" src="https://www.youtube.com/embed/<%= @demo_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
-  </div>
-  <%# <div class="related">
+    <div class="desc-wrapper">
+      <div class="video-info">
+        <p class="title"><span>Learning Journey</span></p>
+        <ul>
+          <li class="text-input">
+            <%=@project.journey%>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <% if @logged_in %>
+      <div class="btn-wrapper">
+        <span class="form-btn"><a href= <%="/admin/edit/#{@project.year}/#{@project.team_num}"%>>編集する</a></span>
+      </div>
+    <% end %>
+    <%# <div class="related">
     <h1>関連したチーム</h1>
   </div> %>
-</div>
+  </div>
+          </div>

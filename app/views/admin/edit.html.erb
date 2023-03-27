@@ -1,6 +1,6 @@
 <div class="container">
   <div class="project">
-    <%= form_tag("/admin/update/#{@project.team_id}") do %>
+    <%= form_tag("/admin/update/#{@project.year}/#{@project.team_num}") do %>
       <h1 class="name">
         <%= @project.app_name %>
         by
@@ -13,7 +13,23 @@
             <li>チーム名 :  <%= @project.team_name %> </li>
             <li>アプリ名 :   <%= @project.app_name %></li>
             <li>参加年 : <%= "#{@project.year}年" %></li>
+            <li>チーム番号 : <%= @project.team_num %></li>
             <li>人数 :   <%= "#{@project.member_num}人" %> </li>
+            <li>企業賞 : <%=@project.prize%> </li>
+            <li>セミファイナル選出 : 
+              <input type="checkbox" id="02-A"
+              <% if @project.semifinal == 1 %>
+                 checked="checked"
+              <% end %> >
+              <label for="02-A" class="checkbox02" disabled></label>
+            </li>
+            <li>ファイナル選出 : 
+              <input type="checkbox" id="02-B" 
+              <% if @project.final == 1 %>
+                  checked="checked"
+              <% end %>>
+              <label for="02-B" class="checkbox02"></label>
+            </li>
           </ul>
         </div>
         <div class="team-info-edit note">
@@ -22,17 +38,33 @@
             <li>チーム名 : <input type="text" name="team_name" value=<%= @project.team_name %>></li>
             <li>アプリ名 : <input type="text" name="app_name" value=<%= @project.app_name %>></li>
             <li>参加年 : <input type="text" name="year" value=<%= @project.year %>></li>
+            <li>チーム番号 : <input type="text" name="team_num" value=<%= @project.team_num %>>(入力例 : "99")</li>
             <li>人数 : <input type="text" name="member_num" value=<%= @project.member_num %>></li>
+            <li>企業賞 : <input type="text" name="prize" value=<%=@project.prize%>> ("Waffle"など企業名のみを入力) </li>
+            <li>セミファイナル選出 : 
+              <input type="checkbox" id="02-C" name="semifinal" 
+              <% if @project.semifinal == 1 %>
+                checked="checked"
+                <% end %>>
+              <label for="02-C" class="checkbox02"></label>
+            </li>
+            <li>ファイナル選出 : 
+              <input type="checkbox" id="02-D" name="final"                
+               <% if @project.final == 1 %>
+                  checked="checked"
+                <% end %>>
+              <label for="02-D" class="checkbox02"></label>
+            </li>
           </ul>
         </div>
       </div>
       <div class="video-wrapper">
         <div class="video">
           <div class="video-info">
-            <p class="title"><span>Pitch Video</span></p>
+            <p class="title top-margin"><span>Pitch Video</span></p>
             <ul>
-              <li> URL : <a href="https://youtu.be/<%=@pitch_video_id %>">https://youtu.be/<%=@pitch_video_id %></a> </li>
-              <li> 変更後のURL : <input type="text" name="pitch_video" value="https://youtu.be/<%=@pitch_video_id %>"></li>
+              <li class="link"> URL : <a href="https://youtu.be/<%=@pitch_video_id %>">https://youtu.be/<%=@pitch_video_id %></a> </li>
+              <li class="link"> 変更後のURL : <input type="text" name="pitch_video" value="https://youtu.be/<%=@pitch_video_id %>"></li>
             </ul>
           </div>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @pitch_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -41,12 +73,47 @@
           <div class="video-info">
             <p class="title"><span>Demo Video</span></p>
             <ul>
-              <li> URL : <a href="https://youtu.be/<%=@pitch_video_id %>">
+              <li class="link"> URL : <a href="https://youtu.be/<%=@pitch_video_id %>">
                   https://youtu.be/<%=@demo_video_id %></a> </li>
-              <li> 変更後のURL : <input type="text" name="demo_video" value="https://youtu.be/<%=@demo_video_id %>"></li>
+              <li class="link"> 変更後のURL : <input type="text" name="demo_video" value="https://youtu.be/<%=@demo_video_id %>"></li>
             </ul>
           </div>
           <iframe  width="560" height="315" src="https://www.youtube.com/embed/<%= @demo_video_id %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <div class="video-info">
+            <p class="title"><span>現在のLearning Journey</span></p>
+            <ul>
+              <li class="text-input">
+                <%=@project.journey%>
+              </li>
+            </ul>
+            <p class="title"><span>変更後のLearning Journey</span></p>
+            <ul>
+              <li class="text"> text : </li>
+              <li class="text-input">
+                <textarea name="journey"><%= @project.journey %>
+</textarea>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="video">
+          <div class="video-info">
+            <p class="title"><span>現在のProject Description</span></p>
+            <ul>
+              <li class="text-input">
+                <%=@project.description%>
+              </li>
+            </ul>
+            <p class="title"><span>変更後のProject Description</span></p>
+            <ul>
+              <li class="text"> text : </li>
+              <li class="text-input">
+                <textarea name="description"><%= @project.description %></textarea>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="btn-wrapper">

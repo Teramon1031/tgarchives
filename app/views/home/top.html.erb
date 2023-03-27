@@ -3,15 +3,35 @@
     <h1>Technovation Girls参加者たちの軌跡</h1>
   </div>
   <div class="projects">
-    <% @projects.each do |pro| %>
-      <%= link_to("/#{pro.team_id}") do %>
+    <% if @logged_in %>
+      <%= link_to("/admin/new") do %>
         <div class="l-wrapper card-radius">
           <article class="card">
             <div class="card__header">
-              <p class="card__title"><%="#{pro.app_name} by #{pro.team_name}"%></p>
+              <p class="card__title"><%="新規投稿"%></p>
+              <figure class="card__thumbnail">
+                <img src="/assets/newpost2.png" alt="サムネイル" class="card__image">
+              </figure>
+            </div>
+            <div class="card__body">
+              <p class="card__text2">このチームの概要</p>
+            </div>
+          </article>
+        </div>
+      <% end %>
+    <% end %>
+    <% @projects.each do |pro| %>
+      <%= link_to("/#{pro.year}/#{pro.team_num}") do %>
+        <div class="l-wrapper card-radius">
+          <article class="card">
+            <div class="card__header">
+              <p class="card__title"><%="#{pro.app_name}"%></p>
               <figure class="card__thumbnail">
                 <img src=<%="http://img.youtube.com/vi/#{pro.pitch_video.slice(-11,11)}/hqdefault.jpg"%> alt="サムネイル" class="card__image">
               </figure>
+            </div>
+            <div class="team">
+              <p><%="team#{pro.team_num}. #{pro.team_name}"%></p>
             </div>
             <div class="tags">
               <ul>
@@ -28,7 +48,7 @@
               </ul>
             </div>
             <div class="card__body">
-              <p class="card__text2">このチームの概要</p>
+              <p class="card__text2"><%=pro.short_summary%>...</p>
             </div>
           </article>
         </div>

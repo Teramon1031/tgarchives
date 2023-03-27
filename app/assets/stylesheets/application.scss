@@ -1,7 +1,4 @@
-$text-black: #212121;
-$text-white: #fff;
-$dark-blue: #041E42;
-$gold:#FFB81C;
+@import "variables";
 
 * {
     color: $text-black;
@@ -19,7 +16,10 @@ a {
 
 header {
     padding: 0 1.5em;
-    background-color: rgba($dark-blue, 0.9);
+    background-color: $dark-blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
     .header-logo {
         display: flex;
@@ -35,6 +35,25 @@ header {
 
         span {
             margin: 0 1em;
+            color: $text-white;
+            font-size: 1em;
+        }
+    }
+
+    .admin_head {
+        display: flex;
+        justify-content: right;
+
+        span {
+            color: $text-white;
+            margin: auto 0.5em;
+            // padding: 1em;
+        }
+
+        input {
+            padding: 0.5em;
+            border: none;
+            background-color: $dark-blue;
             color: $text-white;
             font-size: 1em;
         }
@@ -68,23 +87,32 @@ header {
         }
 
         input {
-            padding: 0 0.3em;
+            padding: 0.3em;
             border: 1px solid $dark-blue;
             border-radius: 0.3em;
-            width: 70%;
+            width: 50%;
         }
 
         .btn-wrapper {
             text-align: center;
+            margin: 2em 0 4em 0;
 
             .form-btn {
+                font-size: 1em;
                 padding: 1em 2em;
                 width: 10em;
                 background-color: #fff;
+                border: 1px solid $dark-blue;
+                border-radius: 0.3em;
+                color: $dark-blue;
 
                 &:hover {
                     color: $text-white;
                     background-color: $dark-blue;
+
+                    a {
+                        color: $text-white;
+                    }
                 }
             }
         }
@@ -108,12 +136,15 @@ header {
         }
 
         .note-wrapper {
-
             .team-info {
                 // width: 70%;
                 margin: 1em 3em;
             }
 
+        }
+
+        .desc-wrapper {
+            padding: 0 3em;
         }
 
         .video-wrapper {
@@ -125,6 +156,12 @@ header {
                 margin: 1.5em 2em;
                 width: 40%;
 
+                iframe {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 90%;
+                }
+
                 @media screen and (max-width: 1100px) {
                     width: 80%;
                 }
@@ -133,7 +170,6 @@ header {
         }
 
         .video-wrapper-new {
-
             .video {
                 margin: 1.5em 2em;
             }

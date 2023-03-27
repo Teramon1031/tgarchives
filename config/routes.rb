@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   get "admin/login" => "admin#login"
+  get "admin/signup" => "admin#signup"
+  post "admin/signupPost" => "admin#signupPost"
   post "admin/loginPost" => "admin#loginPost"
-  get "admin/list" => "admin#list"
+  post "admin/logoutPost"=>"admin#logoutPost"
+  # get "admin/list" => "admin#list"
   get "admin/new" => "admin#new"
-  post "admin/update/:id" => "admin#update"
-  get "admin/edit/:id" => "admin#edit"
+  post "admin/create" => "admin#create"
+  post "admin/update/:year/:num" => "admin#update"
+  get "admin/edit/:year/:num" => "admin#edit"
   get "/" => "home#top"
-  get "/:id" => "team_page#each"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get "/:year/:num" => "team_page#each"
 end

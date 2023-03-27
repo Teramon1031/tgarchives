@@ -19,7 +19,7 @@
       </div>
     <% end %>
     <% @projects.each do |pro| %>
-      <%= link_to("/admin/edit/#{pro.team_id}") do %>
+      <%= link_to("/admin/edit/#{pro.year}/#{pro.team_num}") do %>
         <div class="l-wrapper card-radius">
           <article class="card">
             <div class="card__header">
@@ -43,7 +43,7 @@
               </ul>
             </div>
             <div class="card__body">
-              <p class="card__text2">このチームの概要</p>
+              <p class="card__text2"></p>
             </div>
           </article>
         </div>

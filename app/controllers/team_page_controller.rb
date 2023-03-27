@@ -1,6 +1,6 @@
 class TeamPageController < ApplicationController
   def each
-    @project = Project.find_by(team_id: params[:id])
+    @project = Project.find_by(year: params[:year], team_num: params[:num])
     if !@project
       redirect_to("/admin")
     else

@@ -18,6 +18,12 @@
         <img src="/assets/tg-logo-white.png" alt="" class="logo">
         <span>プロジェクト図鑑</span>
       </a>
+      <% if @logged_in %>
+        <div class="admin_head">
+          <span> -運営としてログイン中- </span>
+          <span><%= form_tag("/admin/logoutPost") do %>  <input class="logout" type="submit" value="ログアウト"> <% end %></span>
+        </div>
+      <% end %>
     </header>
     <% if flash %>
       <div class="flash">

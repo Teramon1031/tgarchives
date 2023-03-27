@@ -1,6 +1,6 @@
 <div class="container">
   <div class="project">
-    <%= form_tag("/admin/update/#{@project.team_id}") do %>
+    <%= form_tag("/admin/create") do %>
       <h1 class="name">
         新規プロジェクト
       </h1>
@@ -10,17 +10,38 @@
           <ul>
             <li>チーム名 : <input type="text" name="team_name"></li>
             <li>アプリ名 : <input type="text" name="app_name"></li>
-            <li>参加年 : <input type="text" name="year"></li>
-            <li>人数 : <input type="text" name="member_num" ></li>
+            <li>参加年 : <input type="text" name="year">(入力例 : "2022")</li>
+            <li>チーム番号 : <input type="text" name="team_num">(入力例 : "99")</li>
+            <li>人数 : <input type="text" name="member_num" >(入力例 : "3")</li>
+            <li>企業賞 : <input type="text" name="prize" > ("Waffle"など企業名のみを入力) </li>
+            <li>セミファイナル選出 : 
+              <input type="checkbox" id="02-A" name="semifinal" >
+              <label for="02-A" class="checkbox02"></label>
+            </li>
+            <li>ファイナル選出 : 
+              <input type="checkbox" id="02-B" name="final" >
+              <label for="02-B" class="checkbox02"></label>
+            </li>
           </ul>
         </div>
       </div>
       <div class="video-wrapper-new">
         <div class="video">
           <div class="video-info">
+            <p class="title"><span>Project Description</span></p>
+            <ul>
+              <li class="text"> text : </li>
+              <li class="text-input">
+                <textarea name="description"></textarea>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="video">
+          <div class="video-info">
             <p class="title"><span>Pitch Video</span></p>
             <ul>
-              <li> URL : <input type="text" name="pitch_video" ></li>
+              <li class="link"> URL : <input type="text" name="pitch_video" ></li>
             </ul>
           </div>
         </div>
@@ -28,13 +49,24 @@
           <div class="video-info">
             <p class="title"><span>Demo Video</span></p>
             <ul>
-              <li> URL : <input type="text" name="demo_video" ></li>
+              <li class="link"> URL : <input type="text" name="demo_video" ></li>
+            </ul>
+          </div>
+        </div>
+        <div class="video">
+          <div class="video-info">
+            <p class="title"><span>Learning Journey</span></p>
+            <ul>
+              <li class="text"> text : </li>
+              <li class="text-input">
+                <textarea name="journey"></textarea>
+              </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="btn-wrapper">
-        <input class="form-btn" type="submit" value="完了">
+        <input class="form-btn" type="submit" value="作成">
       </div>
     <% end %>
   </div>

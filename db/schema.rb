@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_204031) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_093107) do
   create_table "projects", force: :cascade do |t|
-    t.string "team_id"
     t.string "app_name"
     t.string "team_name"
     t.string "pitch_video"
@@ -20,12 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_204031) do
     t.string "business_plan"
     t.string "journey"
     t.integer "member_num"
-    t.string "year"
     t.string "prize"
     t.integer "semifinal"
     t.integer "final"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.text "summary"
+    t.integer "year"
+    t.integer "team_num"
   end
 
   create_table "users", force: :cascade do |t|

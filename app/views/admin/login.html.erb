@@ -1,10 +1,19 @@
 <div class="container">
   <div class="project">
+    <h1>ログイン</h1>
     <%= form_tag("/admin/loginPost") do %>
       <p>name: <input type="text" name="name"></p>
       <p>password : <input type="text" name="password"></p>
       <div class="btn-wrapper">
         <input class="form-btn" type="submit" value="ログイン">
+      </div>
+    <% end %>
+    <h1>サインアップ</h1>
+    <%= form_tag("/admin/signupPost") do %>
+      <p>name: <input type="text" name="newname"></p>
+      <p>password : <input type="text" name="newpassword"></p>
+      <div class="btn-wrapper">
+        <input class="form-btn" type="submit" value="サインアップ">
       </div>
     <% end %>
   </div>

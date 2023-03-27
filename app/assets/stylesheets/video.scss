@@ -1,8 +1,10 @@
+@import "variables";
+
 .video-info {
     margin: 0 0 1em 0;
     // border: solid 2px #999;
     /*外枠の設定*/
-    padding: 0 2em;
+    padding: 0 1em;
     position: relative;
 
 
@@ -13,23 +15,19 @@
         /*罫線の設定*/
         line-height: 1.5;
         padding: 0.5em 0 0.5em 0.5em;
-        margin: 0;
+
+        &.top-margin {
+            margin: 1em 0 0 0;
+        }
 
         span {
             background: linear-gradient(rgba(255, 255, 255, 0) 40%, #BFE1FC 70%);
         }
 
-        /*ドットの設定*/
-        // &::before {
-        //     content: "";
-        //     position: absolute;
-        //     border-right: dotted 10px #ddd;
-        //     /*ドットの設定*/
-        //     height: 90%;
-        //     top: 0.5em;
-        //     left: 0.5em;
-        // }
+
+
     }
+
 
     li {
         border-bottom: dashed 1px #ccc;
@@ -45,17 +43,92 @@
         }
 
         /*チェックアイコンの設定*/
-        &::after {
+        &.link::after {
             font-family: FontAwesome;
             content: "\f0c1";
+
             /*アイコンの設定*/
             color: #fdbf64;
             /*色の設定*/
             position: absolute;
-            left: 2em;
+            left: 1em;
         }
 
+        &.text::after {
+            font-family: FontAwesome;
+            content: "\f5ac";
+            color: #fdbf64;
+            position: absolute;
+            left: 1em;
 
+        }
 
+        &.text-input {
+            textarea {
+                width: 90%;
+                min-height: 300px;
+                // margin: 10px 0px 0 40px;
+                padding: 0.3em;
+                border-radius: 0.3em;
+                font-size: 1em;
+                letter-spacing: 2px;
+                border: 1px solid $dark-blue;
+                resize: none;
+            }
+        }
+
+        input.toggle_input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            opacity: 0;
+            cursor: pointer;
+
+            &:checked+.toggle_label {
+                border: 3px solid $dark-blue;
+            }
+
+            &:checked+.toggle_label:after {
+                left: 42px;
+                background: $dark-blue;
+            }
+        }
+
+        input.toggle_label {
+            width: 85px;
+            height: 42px;
+            background: #fff;
+            border: 3px solid #eee;
+            position: relative;
+            display: inline-block;
+            border-radius: 40px;
+            transition: 0.4s;
+            box-sizing: border-box;
+
+            &:before {
+                content: "Archive";
+                font-size: 1.5em;
+                color: $dark-blue;
+                position: absolute;
+                left: 90px;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 35px;
+                height: 35px;
+                border-radius: 100%;
+                left: 0;
+                top: 0;
+                z-index: 2;
+                background: #fff;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                transition: 0.4s;
+            }
+        }
     }
 }
